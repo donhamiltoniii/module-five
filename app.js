@@ -2,9 +2,12 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+
+// Handles DB Connection
 require("./utils/db");
 
-var indexRouter = require("./routes/index");
+var indexRouter = require("./routes/index.router");
+const studentRouter = require("./routes/student.router");
 
 var app = express();
 
@@ -15,5 +18,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/students", studentRouter);
 
 module.exports = app;
