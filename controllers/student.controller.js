@@ -2,9 +2,9 @@ const StudentService = require("../services/student.service");
 
 module.exports = {
   addNewStudent(req, res) {
-    const { language, name } = req.body;
+    const { cohortId, language, name } = req.body;
 
-    StudentService.add(language, name, response => {
+    StudentService.add(cohortId, language, name, response => {
       res.json({ response });
     });
   },

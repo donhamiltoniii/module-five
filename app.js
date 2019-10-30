@@ -7,6 +7,7 @@ var logger = require("morgan");
 require("./utils/db");
 
 var indexRouter = require("./routes/index.router");
+const cohortRouter = require("./routes/cohort.router");
 const studentRouter = require("./routes/student.router");
 
 var app = express();
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
+app.use("/cohorts", cohortRouter)
 app.use("/students", studentRouter);
 
 module.exports = app;
