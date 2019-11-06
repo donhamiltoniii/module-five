@@ -3,10 +3,19 @@ var router = express.Router();
 
 const CohortController = require("../controllers/cohort.controller");
 
-/* GET All Students. */
+// POST New Cohort
+router.post("/", CohortController.addNewCohort);
+
+/* GET All Cohorts. */
 router.get("/", CohortController.getAllCohorts);
 
-// POST New Student
-router.post("/", CohortController.addNewCohort);
+/* GET All Cohorts. */
+router.get("/:id", CohortController.getCohort);
+
+// PATCH Update Cohort Title
+router.patch("/:id", CohortController.updateCohortTitle);
+
+// DELETE Single Cohort
+router.delete("/:id", CohortController.deleteCohortAndStudents);
 
 module.exports = router;

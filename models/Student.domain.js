@@ -1,5 +1,6 @@
 class Student {
-  constructor(language, name) {
+  constructor(imageUrl, language, name) {
+    this.imageUrl = imageUrl;
     this.language = language;
     this.name = name;
   }
